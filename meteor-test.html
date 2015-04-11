@@ -1,0 +1,76 @@
+<head>
+  <title>Avero Diagnostics</title>
+</head>
+
+<template name="layout">
+	{{> header }}
+	<div class="container">
+		{{> yield}}
+	</div>
+</template>
+<!-- <body>
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Accounts Admin</a>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            {{> loginButtons }}
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        {{> adminTemplate}}
+    </div>
+</body> -->
+
+<template name="adminTemplate">
+    {{#if isAdminUser}}
+        {{> accountsAdmin}}
+        <button>Add New User</button>
+    {{else}}
+        Must be admin to see this...
+    {{/if}}
+</template>
+
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+
+
+</template>
+
+
+
+
+<template name="home">
+	{{#if isAdminUser}}
+		<div class="alert alert-success">Manage users over on the <a href='/admin/' class='alert-link'>Admin</a> Page</div>
+	{{else}}
+		<div class="alert alert-info">Well, you need to be logged in as an admin to do anything cool here...</div>
+	{{/if}}
+</template>
+
+
+<template name="header">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{pathFor 'home'}}">Accounts Admin UI</a>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">  
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            {{> loginButtons }}
+            </ul>
+        </div>
+    </div>
+</template>
+

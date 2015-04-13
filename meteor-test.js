@@ -3,19 +3,11 @@ Handlebars.registerHelper('isAdminUser', function() {
 });
 
 Accounts.config({
-    forbidClientAccountCreation: true
+    forbidClientAccountCreation: false
 })
 
-accountsAdminUiConfiguration = {
-  userStatus: true, //if true and user-status pacakge installed, this will show last login and current login status
-};
-
 if (Meteor.isClient) {
-  Accounts.ui.config({
-    passwordSignupFields: 'USERNAME_ONLY'
-  });
 
-  
   // counter starts at 0
   Session.setDefault('counter', 0);
 

@@ -51,6 +51,10 @@
 	<img src="images/AveroLogo.png">
 </template>
 
+<template name="SP_template">
+ SP Template
+</template>
+
 <template name="chat">
         <h2>Chat</h2>
 
@@ -86,7 +90,7 @@
         </thead>
         <tbody>
         <tr ng-repeat="case in cases | orderBy:orderString | filter:q | limitTo:50">
-          <td><a ui-sref="home.caseEdit({caseNum: case.caseNumber})"> [[case.caseNumber]]</a></td> 
+          <td><a href="/caseEdit/[[case.caseNumber]]"> [[case.caseNumber]]</a></td> 
           <td>[[ case.name]]</td> 
           <td>[[ case.doctor ]]</td>
           <td>[[ case.jarCount ]]</td>

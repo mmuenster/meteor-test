@@ -28,6 +28,18 @@
 
     Router.route('chat');
 
+    Router.route('/caseEdit/:_caseNum', function () {
+      var x = this.params._caseNum; // { _id: "5" }
+      if(x=="SP14-015616") {
+        this.render('SP_template', {
+          data: function() {
+            return Cases.findOne({caseNumber: x})
+          }
+        })
+      } else {
+        this.redirect('chat')
+      }
+    });
     Router.route('admin', {
         path:'/admin',
         template: 'accountsAdmin',

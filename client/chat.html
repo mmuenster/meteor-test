@@ -1,0 +1,17 @@
+<template name="chat">
+        <h2>Chat</h2>
+
+        <form id="new-message">
+          <input type="text" name="text" placeholder="Message..." />
+        </form>
+
+        <ul id="messages">
+          {{#each messages}}
+          <li>{{text}}</li>
+          {{/each}}
+        </ul>
+
+        {{#if err}}
+        <p class="alert alert-danger">{{err}}</p>
+        {{/if}}
+</template>

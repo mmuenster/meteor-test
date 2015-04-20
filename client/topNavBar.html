@@ -1,0 +1,31 @@
+<template name="topNavbar">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">NewLis</a>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              {{#if isAdminUser}}
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="/admin">User Management</a></li>
+                      <li><a href="/chat">Chat</a></li>
+                      <li><a href="/caseList">Angular Case List</a></li>
+                      <li class="divider"></li>
+                      <li class="dropdown-header">Nav header</li>
+                      <li><a href="/pdfBuilder">PDF Builder</a></li>
+                      <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+              {{/if}}
+  
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            {{> loginButtons }}
+            </ul>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,50 @@
+<template name="template_SP">
+  <div class="col-md-6">
+    <div class="row">
+
+      <input type="button" hidden value="Next Blank (alt-g)" accesskey="g" ng-click="gotoNextBlank()">
+      <input type="button" hidden value="Enter code (alt-j)" accesskey="j" ng-click="dxCodeEntry()">
+      <button type="button" class="btn" id="saveCase" ng-click="saveCase()" accesskey="s">Save</button> 
+      <button id="previewPDF" class="btn" ng-click="previewPDF(caseToEdit)" accesskey="p">Preview</button>
+      <button id="signout" class="btn" ng-click="signout(caseToEdit)" accesskey="o">Signout</button>
+      <select ng-model="pdfReport" ng-init="pdfReport = reports[0].code">
+        <option ng-repeat="report in reports" value="{{report.code}}">{{report._id}}</option>
+      </select>
+     
+      <div class="row bg-primary">
+        <div class="col-md-6">
+          <h1 id="caseNumber">{{caseNumber}}</h1>
+        </div>
+        <div class="col-md-6">
+          <h1>{{name}}</h1>
+        </div>
+      </div>
+      <div class="row bg-success">
+        <div class="col-md-4">
+            <h4><p><strong>Collected: </strong>{{collectionDate}}</p>
+            <p><strong>Age: </strong>{{age}}</p>
+            <p><strong>Doctor: </strong> {{doctor}}</p></h4>
+        </div>
+        <div class="col-md-4">
+          <h4><p><strong>Received: </strong>{{receivedDate}}</p>
+          <p><strong>Gender: </strong>{{gender}}</p>
+          <p><strong>Client: </strong>{{client}}</p></h4>
+        </div>
+        <div class="col-md-4">
+        <h4><p><strong>DOB: </strong>{{dob}}</p></h4>
+        </div>
+      </div>
+      <div class="row">
+        <strong>Clinical Information: </strong><input class="form-control" type="text" value="clinicalInformation">
+      </div>
+      <div class="row">
+        {{#each jars}}
+          {{label}}
+          {{site}}
+          {{grossDescription}}
+        {{/each}}
+      </div>
+    </div>
+</div>
+
+</template>

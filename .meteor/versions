@@ -12,6 +12,7 @@ blaze-tools@1.0.3
 boilerplate-generator@1.0.3
 callback-hook@1.0.3
 check@1.0.5
+chipcastledotcom:jspdf@0.0.2
 coffeescript@1.0.6
 dburles:mongo-collection-instances@0.3.3
 ddp@1.1.0
@@ -53,7 +54,6 @@ mrt:accounts-admin-ui-bootstrap-3@0.2.7
 npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
 ordered-dict@1.0.3
-pascoual:pdfkit@1.0.5
 random@1.0.3
 reactive-dict@1.1.0
 reactive-var@1.0.5

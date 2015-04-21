@@ -22,11 +22,10 @@
 	</style>
 
 	<div class="row">
-		Case Number: <input ng-model="caseNumber">   Report Name: <input id="reportName">
+		Case Number: <input id="caseNumber">   Report Name: <input id="reportName">
 	</div>
 	 <div class="row">
-	 	<button id="test" ng-click="test()">Test</button>
-	 	<button ng-click="newReport">New Report</button>
+	 	<button id="test" accesskey="t">Test</button>
 	 	<button id="loadReport">Load Report</button>
 	 	<button id="saveReport">Save Report</button>
 	 </div>
@@ -34,8 +33,9 @@
 		 <div class="col-md-6">
 		 	<pre id="editor"></pre>
 		 </div>
-		 <div ng-show="preview" class="col-md-6">
-		  <iframe ng-src="{{iframeURL}}" width="600" height="775"></iframe>
+		 
+		 <div class="col-md-6">
+		  <iframe id="previewPanel" src="{{iframeURL}}" width="600" height="775"></iframe>
 		</div>
 	</div>
 </template>

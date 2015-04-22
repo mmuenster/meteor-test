@@ -3,15 +3,6 @@ convertImgToBase64("http://localhost:3000/images/AveroLogo.png", function(base64
 	averoLogoImg = base64Img;
 });
 
-Template.pdfBuilder.rendered = function() {
-	var ace = AceEditor.instance("editor",{
-	    theme:"monokai", 
-	    mode:"javascript"
-	});
-	ace.$blockScrolling = Infinity;
-	//ace.setValue("This is some text"
-
-}
 
 function convertImgToBase64(url, callback, outputFormat){
 	var canvas = document.createElement('CANVAS');
@@ -30,24 +21,19 @@ function convertImgToBase64(url, callback, outputFormat){
 	img.src = url;
 }
 
+Template.pdfBuilder.rendered = function() {
+	var ace = AceEditor.instance("editor",{
+	    theme:"monokai", 
+	    mode:"javascript"
+	});
+	ace.$blockScrolling = Infinity;
+	//ace.setValue("This is some text"
+}
+
 Template.pdfBuilder.events({
 	"click #test": function(event, template) {
-		console.log(averoLogoImg)
-		AceEditor.instance("editor", null, function(editor){
-			var doc = new jsPDF("portrait", "pt", "letter");
-			eval(editor.getValue())
-			var string = doc.output('datauristring');
-			template.find("#previewPanel").src =  string;
-			// Meteor.call("evaluateCode", editor.getValue(), 
-			// 	function (error, result) {
-			// 	  if (error) {
-			// 	    console.log(error)
-			// 	  } else {
-			// 	    console.log(result)
-			// 	  }
-			// 	}
-			// )
-		});
+		template.find("#previewPanel").src =  
+				"/getPDF/" + template.find("#caseNumber").value + "/" + template.find("#reportName").value;
 	},
 
 	"click #loadReport": function(event, template) {
@@ -68,5 +54,5 @@ Template.pdfBuilder.events({
 				console.log(y)
 			}
 		})
-	}
+	},
 });

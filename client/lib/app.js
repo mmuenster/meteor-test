@@ -1,5 +1,6 @@
 Meteor.subscribe('allCases');
 
 Accounts.onLogin(function() {
-  Router.go('/')
+	console.log("In onLogin")
+  //Router.go('/')
 })

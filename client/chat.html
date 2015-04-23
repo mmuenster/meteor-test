@@ -1,9 +1,15 @@
 <template name="chat">
         <h2>Chat</h2>
 
-        <form id="new-message">
-          <input type="text" name="text" placeholder="Message..." />
-        </form>
+        {{#autoForm collection="Messages" id="insertMessageForm" type="insert"}}
+          <fieldset>
+            {{> afQuickField name="text"}}
+            {{#if afFieldIsInvalid name='createdAt'}}
+              <span class="help-block">{{afFieldMessage name='createdAt'}}{{afFieldInput}}</span>
+            {{/if}}
+          </fieldset>
+          <button type="submit" class="btn btn-primary">Insert</button>
+        {{/autoForm}}
 
         <ul id="messages">
           {{#each messages}}

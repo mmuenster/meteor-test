@@ -1,7 +1,7 @@
 //messages.js
 Messages = new Mongo.Collection("messages")
 
-Messages.attachSchema( new SimpleSchema({
+Schema.messages = new SimpleSchema({
 	text: {
 		type: String, 
 		label: "Message",
@@ -13,7 +13,9 @@ Messages.attachSchema( new SimpleSchema({
 		label: "Created At",
 		autoValue: function() { return new Date }
 	}
-}))
+})
+
+Messages.attachSchema(Schema.messages)
 
 if(Meteor.isServer) {
 	Meteor.publish(null, function(filter) {

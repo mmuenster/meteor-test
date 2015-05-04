@@ -1,7 +1,7 @@
 <template name="chat">
         <h2>Chat</h2>
 
-        {{#autoForm collection="Messages" id="insertMessageForm" type="insert"}}
+        {{#autoForm collection="Messages" id="insertMessageForm" type="method" meteormethod="insertNewMessage"}}
           <fieldset>
             {{> afQuickField name="text"}}
             {{#if afFieldIsInvalid name='createdAt'}}
